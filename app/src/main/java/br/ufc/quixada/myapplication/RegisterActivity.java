@@ -23,12 +23,16 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 import java.util.UUID;
+
+import br.ufc.quixada.myapplication.model.Usuario;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -105,6 +109,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         if(nome == null || nome.isEmpty() || cpf == null || cpf.isEmpty() || telefone == null || telefone.isEmpty() || email == null || email.isEmpty() || senha == null || senha.isEmpty()){
             Toast.makeText(this, "Todos os campos devem ser preenchidos", Toast.LENGTH_SHORT).show();
+            return;
         }
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -129,10 +134,34 @@ public class RegisterActivity extends AppCompatActivity {
         referencia.putFile(selectedUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                referencia.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                referencia.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
-                    public void onComplete(@NonNull Task<Uri> task) {
-                        Log.i("Teste", selectedUri.toString());
+                    public void onSuccess(Uri uri) {
+                        Log.i("Teste", uri.toString());
+                        String uid = FirebaseAuth.getInstance().getUid();
+                        String nome = edit_text_rg_nome.getText().toString();
+                        String cpf = edit_text_rg_cpf.getText().toString();
+                        String telefone = edit_text_rg_telefone.getText().toString();
+                        String email = edit_text_rg_email.getText().toString();
+                        String senha = edit_text_rg_senha.getText().toString();
+                        String fotoUrl = uri.toString();
+
+                        Usuario usuario = new Usuario(uid,nome, cpf,telefone,email,senha, fotoUrl);
+
+                        FirebaseFirestore.getInstance().collection("usuarios")
+                                .add(usuario)
+                                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                    @Override
+                                    public void onSuccess(DocumentReference documentReference) {
+                                        Log.i("Teste", documentReference.getId());
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.i("Teste", e.getMessage());
+                                    }
+                                });
                     }
                 });
             }

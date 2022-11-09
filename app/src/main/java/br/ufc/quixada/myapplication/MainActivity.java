@@ -1,13 +1,22 @@
 package br.ufc.quixada.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,8 +38,29 @@ public class MainActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                startActivity(intent);
+                String email = edt_lg_email.getText().toString();
+                String senha = edt_lg_senha.getText().toString();
+
+                if(email == null || email.isEmpty() || senha == null || senha.isEmpty()){
+                    Toast.makeText(MainActivity.this, "Todos os campos devem ser preenchidos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(email, senha)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                Log.i("Teste", task.getResult().getUser().getUid());
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.i("Teste", e.getMessage());
+                            }
+                        });
+
+//                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+//                startActivity(intent);
             }
         });
 

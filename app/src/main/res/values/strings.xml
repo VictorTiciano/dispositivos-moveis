@@ -3,4 +3,6 @@
     <string name="login">Entrar</string>
     <string name="btn_register">Criar conta</string>
     <string name="btn_rgu_cancel">Cancelar</string>
+    <string name="btn_rg_create">Cirar conta</string>
+    <string name="btn_rgi_create">Criar Anuncio</string>
 </resources>

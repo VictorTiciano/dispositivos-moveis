@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Usuario {
 
-    private int id;
+    private String uuid;
 
     private String nome;
 
@@ -17,6 +17,8 @@ public class Usuario {
     private String email;
 
     private String senha;
+
+    private String foto;
 
     private ArrayList<Anuncio> anuncios;
 
@@ -39,8 +41,32 @@ public class Usuario {
         this.anuncios = anuncios;
     }
 
-    public int getId() {
-        return id;
+    public Usuario(String uuid, String nome, String cpf, String telefone, String email, String senha, String foto, ArrayList<Anuncio> anuncios) {
+        this.uuid = uuid;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.email = email;
+        this.senha = senha;
+        this.foto = foto;
+        this.anuncios = anuncios;
+    }
+    public Usuario(String uuid, String nome, String cpf, String telefone, String email, String senha, String foto) {
+        this.uuid = uuid;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.email = email;
+        this.senha = senha;
+        this.foto = foto;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getNome() {
@@ -81,6 +107,14 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public ArrayList<Anuncio> getAnuncios() {

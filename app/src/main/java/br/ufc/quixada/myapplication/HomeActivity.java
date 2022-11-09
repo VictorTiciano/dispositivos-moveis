@@ -31,7 +31,6 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         selected = -1;
 
-
         listaAmigos = new ArrayList<Usuario>();
         Anuncio anuncio = new Anuncio("titulo", "Rua teste", 450, 400, 2, 4, 2, 350000);
         ArrayList<Anuncio> anuncios = new ArrayList<>();
@@ -39,8 +38,8 @@ public class HomeActivity extends AppCompatActivity {
         anuncios.add(anuncio);
         anuncios.add(anuncio);
         listaAmigos.add(new Usuario("Fernando","88988988989","889889889","fernando@gmail.com","senha123", anuncios));
-        listaAmigos.add(new Usuario("Fernando","88988988989","889889889","fernando@gmail.com","senha123"));
-        listaAmigos.add(new Usuario("Fernando","88988988989","889889889","fernando@gmail.com","senha123", anuncios));
+        listaAmigos.add(new Usuario("Maria","222222222","22222222222","maria@gmail.com","senha123"));
+        listaAmigos.add(new Usuario("Marcos","111111111","111111111111","marcos@gmail.com","senha123", anuncios));
 
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listaAmigos);
         ListView listViewAmigos = (ListView) findViewById(R.id.list_view_home);
