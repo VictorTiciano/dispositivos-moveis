@@ -7,7 +7,7 @@
     tools:context=".RegisterAnuncioActivity">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/edit_text_rg_nome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/edit_text_rg_cpf"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -30,12 +30,12 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:hint="Endereço"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_rg_nome"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_rg_nome"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_rg_nome" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/edit_text_rg_telefone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -43,12 +43,12 @@
         android:inputType="number"
         android:minHeight="48dp"
         android:hint="Metros quadrados do terreno"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_rg_cpf"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_rg_cpf"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_rg_cpf" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/edit_text_rg_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -56,12 +56,12 @@
         android:inputType="number"
         android:minHeight="48dp"
         android:hint="Metros quadrados construidos"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_rg_telefone"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_rg_telefone"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_rg_telefone" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/edit_text_rg_senha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -69,9 +69,9 @@
         android:inputType="number"
         android:minHeight="48dp"
         android:hint="Quantidade de quartos"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName4"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_rg_email"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_rg_email"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_rg_email" />
 
     <EditText
         android:id="@+id/editTextTextPersonName6"
@@ -82,9 +82,9 @@
         android:inputType="number"
         android:minHeight="48dp"
         android:hint="Quantidade de Banheiros"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName5"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_rg_senha"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_rg_senha"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_rg_senha" />
 
     <EditText
         android:id="@+id/editTextTextPersonName7"
@@ -113,7 +113,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_rg_salvar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -127,9 +127,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/btn_rgu_cancel"
-        app:layout_constraintEnd_toEndOf="@+id/button3"
-        app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_rg_salvar"
+        app:layout_constraintStart_toStartOf="@+id/btn_rg_salvar"
+        app:layout_constraintTop_toBottomOf="@+id/btn_rg_salvar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

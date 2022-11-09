@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "36924468688",
+    "project_id": "dispositivos-moveis-qxd0102",
+    "storage_bucket": "dispositivos-moveis-qxd0102.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36924468688:android:1a38b3b599cd81cfc25dd5",
+        "android_client_info": {
+          "package_name": "br.ufc.quixada.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36924468688-5n9tlgvnkd5td4ndd03l8ddg1m2i6m4l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnIoKqvLDK61Md6GvLTn3ezaJSJ6KbXmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36924468688-5n9tlgvnkd5td4ndd03l8ddg1m2i6m4l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
