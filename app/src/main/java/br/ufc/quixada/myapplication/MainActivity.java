@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 Log.i("Teste", task.getResult().getUser().getUid());
-                                Intent intent = new Intent(MainActivity.this, MensagensActivity.class);
+                                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                             }

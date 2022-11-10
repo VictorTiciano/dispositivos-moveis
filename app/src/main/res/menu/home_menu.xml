@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/item_menu_chat"
+        android:title="@string/chat"
+        android:icon="@drawable/ic_action_chat"
+        app:showAsAction="always"/>
+    <item android:id="@+id/item_menu_perfil"
+        android:title="@string/menu_perfil"
+        android:icon="@drawable/ic_action_perfil"
+        app:showAsAction="always"/>
+
+</menu>

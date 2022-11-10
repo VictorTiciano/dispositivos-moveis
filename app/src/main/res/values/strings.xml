@@ -12,4 +12,8 @@
     <string name="cadanuncio">Cadastrar Anúncio</string>
     <string name="brn_chat">Enviar</string>
     <string name="mensagem">Digite a mensagem</string>
+    <string name="mensagens">Mensagens</string>
+    <string name="registro">Cadastrar Usuário</string>
+    <string name="chat">Chat</string>
+    <string name="menu_perfil">Perfil</string>
 </resources>

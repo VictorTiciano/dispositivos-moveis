@@ -33,29 +33,22 @@ public class AmigosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_amigos);
 
         ArrayList<Usuario> listaAmigos = new ArrayList<>();
-        Usuario u = new Usuario("Fulano", "5454", "2121", "f@gmail.com", "senha123");
-        listaAmigos.add(u);
-        listaAmigos.add(u);
-        listaAmigos.add(u);
-//        FirebaseFirestore.getInstance().collection("usuarios")
-//                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-//                        if(error != null){
-//                            Log.e("Teste", error.getMessage(), error);
-//                            return;
-//                        }
-//                        List<DocumentSnapshot> documents = value.getDocuments();
-//                        for (DocumentSnapshot doc: documents) {
-//                            Usuario usuario = doc.toObject(Usuario.class);
-//                            listaAmigos.add(usuario);
-//                        }
-//                    }
-//                });
+        Usuario u1 = new Usuario("Fulano", "5454", "2121", "f@gmail.com", "senha123");
+        Usuario u2 = new Usuario("Pedro Henrique", "5454", "2121", "ph@gmail.com", "senha123");
+        Usuario u3 = new Usuario("Jonas de Sousa", "5454", "2121", "jonas.s@gmail.com", "senha123");
+        Usuario u4 = new Usuario("Bonosalro", "5454", "2121", "bonosalro.patriota@gmail.com", "senha123");
+        Usuario u5 = new Usuario("Simone Tablet", "5454", "2121", "tabA7@gmail.com", "senha123");
+        Usuario u6 = new Usuario("Maria Julia", "5454", "2121", "maria.ju@gmail.com", "senha123");
+        Usuario u7 = new Usuario("Patricia", "5454", "2121", "patricia@gmail.com", "senha123");
+        listaAmigos.add(u1);
+        listaAmigos.add(u6);
+        listaAmigos.add(u7);
+        listaAmigos.add(u2);
+        listaAmigos.add(u3);
+        listaAmigos.add(u4);
+        listaAmigos.add(u5);
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listaAmigos);
-//        RecyclerView recyclerView = findViewById(R.id.recycler);
-//        recyclerView.setAdapter(adapter);
         ListView listView = (ListView) findViewById(R.id.list_view_amigos);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

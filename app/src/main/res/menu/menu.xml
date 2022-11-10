@@ -9,7 +9,9 @@
 
     <item android:id="@+id/contatos"
         android:title="@string/amigos"
+        android:icon="@drawable/ic_action_amigos"
         app:showAsAction="always"/>
+
     <item android:id="@+id/logout"
         android:title="@string/logout"
         app:showAsAction="always"/>
