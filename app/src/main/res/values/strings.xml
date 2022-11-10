@@ -7,4 +7,5 @@
     <string name="btn_rgi_create">Criar Anuncio</string>
     <string name="amigos">Amigos</string>
     <string name="logout">Logout</string>
+    <string name="homeact">Home</string>
 </resources>

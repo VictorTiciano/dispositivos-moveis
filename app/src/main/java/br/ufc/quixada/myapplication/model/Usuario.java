@@ -130,4 +130,9 @@ public class Usuario {
         return "Nome: " + nome + " - CPF: " + cpf + " - Telefone: " + telefone + " - Email: " + email
                 + "\n" + anuncios;
     }
+
+    public String toString2() {
+        return "Nome: " + nome + " - Telefone: " + telefone + " - Email: " + email;
+    }
+
 }

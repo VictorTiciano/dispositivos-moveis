@@ -29,6 +29,10 @@ public class MensagensActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
+            case R.id.home_act:
+                Intent intentH = new Intent(MensagensActivity.this, HomeActivity.class);
+                startActivity(intentH);
+                break;
             case R.id.contatos:
                 Intent intent = new Intent(MensagensActivity.this, AmigosActivity.class);
                 startActivity(intent);
