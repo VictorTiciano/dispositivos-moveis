@@ -127,12 +127,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Nome: " + nome + " - CPF: " + cpf + " - Telefone: " + telefone + " - Email: " + email
-                + "\n" + anuncios;
-    }
-
-    public String toString2() {
-        return "Nome: " + nome + " - Telefone: " + telefone + " - Email: " + email;
+        return nome + "\n" + email;
     }
 
 }

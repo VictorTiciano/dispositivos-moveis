@@ -13,22 +13,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
-        <activity android:name=".AmigosActivity"
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MensagensActivity" />
+        </activity>
+        <activity
+            android:name=".AmigosActivity"
             android:exported="false"
             android:label="@string/amigos">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MensagensActivity"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MensagensActivity" />
         </activity>
-
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/login_" />
         <activity
             android:name=".RegisterAnuncioActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/cadanuncio" />
         <activity
             android:name=".HomeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/homeact" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />

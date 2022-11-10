@@ -17,7 +17,7 @@
             android:orientation="horizontal">
 
             <ListView
-                android:id="@+id/listView"
+                android:id="@+id/list_view_amigos"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>

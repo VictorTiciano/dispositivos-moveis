@@ -8,4 +8,8 @@
     <string name="amigos">Amigos</string>
     <string name="logout">Logout</string>
     <string name="homeact">Home</string>
+    <string name="login_">Login</string>
+    <string name="cadanuncio">Cadastrar Anúncio</string>
+    <string name="brn_chat">Enviar</string>
+    <string name="mensagem">Digite a mensagem</string>
 </resources>
