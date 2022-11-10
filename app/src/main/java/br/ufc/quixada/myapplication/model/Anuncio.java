@@ -8,6 +8,8 @@ public class Anuncio {
 
     private String endereco;
 
+    private int img;
+
     private double metrosQuadradosTerreno;
 
     private double metrosQuadradosConstruidos;
@@ -20,9 +22,10 @@ public class Anuncio {
 
     private double preco;
 
-    public Anuncio(String titulo, String endereco, double metrosQuadradosTerreno, double metrosQuadradosConstruidos, int quantidadeQuartos, int quantidadeBanheiros, int quantidadeVagasGaragem, double preco) {
+    public Anuncio(String titulo, String endereco, int img, double metrosQuadradosTerreno, double metrosQuadradosConstruidos, int quantidadeQuartos, int quantidadeBanheiros, int quantidadeVagasGaragem, double preco) {
         this.titulo = titulo;
         this.endereco = endereco;
+        this.img = img;
         this.metrosQuadradosTerreno = metrosQuadradosTerreno;
         this.metrosQuadradosConstruidos = metrosQuadradosConstruidos;
         this.quantidadeQuartos = quantidadeQuartos;
@@ -53,6 +56,14 @@ public class Anuncio {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+
+    public int getImg() {
+        return img;
+    }
+
+    public void setImg(int img) {
+        this.img = img;
     }
 
     public double getMetrosQuadradosTerreno() {
@@ -96,20 +107,10 @@ public class Anuncio {
     }
 
     public double getPreco() {
-        return preco;
+        return  preco;
     }
 
     public void setPreco(double preco) {
         this.preco = preco;
-    }
-
-    @Override
-    public String toString() {
-        return titulo + " - " + endereco + " - " + metrosQuadradosTerreno +
-                " - " + metrosQuadradosConstruidos +
-                " - " + quantidadeQuartos +
-                " - " + quantidadeBanheiros +
-                " - " + quantidadeVagasGaragem +
-                " - " + preco+"\n";
     }
 }
