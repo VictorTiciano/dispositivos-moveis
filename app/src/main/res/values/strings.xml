@@ -5,4 +5,6 @@
     <string name="btn_rgu_cancel">Cancelar</string>
     <string name="btn_rg_create">Cirar conta</string>
     <string name="btn_rgi_create">Criar Anuncio</string>
+    <string name="amigos">Amigos</string>
+    <string name="logout">Logout</string>
 </resources>
