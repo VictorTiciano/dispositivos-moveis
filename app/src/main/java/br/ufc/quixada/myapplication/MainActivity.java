@@ -61,9 +61,6 @@ public class MainActivity extends AppCompatActivity {
                                 Log.i("Teste", e.getMessage());
                             }
                         });
-
-//                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-//                startActivity(intent);
             }
         });
 
