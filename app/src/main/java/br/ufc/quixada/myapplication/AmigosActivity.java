@@ -25,8 +25,6 @@ import br.ufc.quixada.myapplication.model.Usuario;
 
 public class AmigosActivity extends AppCompatActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

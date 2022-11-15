@@ -18,7 +18,7 @@ public class FeedAdapter extends ArrayAdapter<Anuncio> {
     private final ArrayList<Anuncio> anuncios;
 
     public FeedAdapter(Context context, ArrayList<Anuncio> anuncios) {
-        super(context,R.layout.activity_feed, anuncios);
+        super(context, R.layout.activity_feed, anuncios);
         this.context = context;
         this.anuncios = anuncios;
     }
@@ -28,10 +28,12 @@ public class FeedAdapter extends ArrayAdapter<Anuncio> {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.activity_feed, parent, false);
+
         TextView anuncio = (TextView) rowView.findViewById(R.id.nome);
         TextView endereco = (TextView) rowView.findViewById(R.id.endereco);
         TextView preco = (TextView) rowView.findViewById(R.id.preco);
         ImageView imagem = (ImageView) rowView.findViewById(R.id.imagem);
+
         anuncio.setText(anuncios.get(position).getTitulo());
         endereco.setText(anuncios.get(position).getEndereco());
         preco.setText(Double.toString(anuncios.get(position).getPreco()));

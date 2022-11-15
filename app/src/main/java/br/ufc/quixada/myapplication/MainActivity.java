@@ -1,8 +1,5 @@
 package br.ufc.quixada.myapplication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 String email = edt_lg_email.getText().toString();
                 String senha = edt_lg_senha.getText().toString();
 
-                if(email == null || email.isEmpty() || senha == null || senha.isEmpty()){
+                if (email == null || email.isEmpty() || senha == null || senha.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Todos os campos devem ser preenchidos", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -71,6 +71,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }

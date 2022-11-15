@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../../layout/custom_preview.xml" value="0.10764944275582573" />
         <entry key="app/src/main/res/drawable-anydpi/ic_action_amigos.xml" value="0.1495" />
         <entry key="app/src/main/res/drawable-anydpi/ic_action_chat.xml" value="0.1495" />
         <entry key="app/src/main/res/drawable-anydpi/ic_action_name.xml" value="0.1495" />
@@ -12,16 +13,21 @@
         <entry key="app/src/main/res/drawable/img_asset_Home_foreground.xml" value="0.1195" />
         <entry key="app/src/main/res/layout/activity_amigos.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_feed.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_feed.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_mensagem_chat.xml" value="0.15217391304347827" />
         <entry key="app/src/main/res/layout/activity_mensagens.xml" value="0.13451086956521738" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_register_anuncio.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_from_message.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_to_message.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/teste.xml" value="0.33" />
         <entry key="app/src/main/res/layout/usuario_item.xml" value="0.22" />
         <entry key="app/src/main/res/menu/home_menu.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.19375" />
         <entry key="app/src/main/res/menu/menu_home_activity.xml" value="0.19375" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/img_asset_Home.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/img_asset_home.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/img_asset_home_round.xml" value="0.1" />

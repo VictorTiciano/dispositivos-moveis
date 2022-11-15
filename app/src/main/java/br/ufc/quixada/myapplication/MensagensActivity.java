@@ -1,9 +1,5 @@
 package br.ufc.quixada.myapplication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,6 +8,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -44,8 +43,6 @@ public class MensagensActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     @Override
@@ -56,7 +53,7 @@ public class MensagensActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.home_act:
                 Intent intentH = new Intent(MensagensActivity.this, HomeActivity.class);
                 startActivity(intentH);
@@ -74,7 +71,7 @@ public class MensagensActivity extends AppCompatActivity {
     }
 
     private void verificaAutenticacao() {
-        if(FirebaseAuth.getInstance().getUid() == null){
+        if (FirebaseAuth.getInstance().getUid() == null) {
             Intent intent = new Intent(MensagensActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
