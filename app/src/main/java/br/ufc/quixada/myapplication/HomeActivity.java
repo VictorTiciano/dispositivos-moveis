@@ -63,28 +63,11 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.item_menu_perfil:
                 //ir para a tela de edição mas com os dados do usuario ja preenchidos
-                editarUsuario("TdX3WwjisqVyTslt5f4I8vdUJNv2");
-                Intent intentE = new Intent(HomeActivity.this, RegisterActivity.class);
+                Intent intentE = new Intent(HomeActivity.this, PerfilActivity.class);
                 startActivity(intentE);
                 break;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    private void editarUsuario(String id) {
-        Intent intent = new Intent(HomeActivity.this, RegisterActivity.class);
-        FirebaseFirestore.getInstance().collection("usuarios").whereEqualTo("uuid", id)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        for(QueryDocumentSnapshot document : task.getResult()){
-                            String key = "julio@gmail.com";
-                            Usuario usuario = (Usuario) document.getData().get(key);
-                            System.out.println(usuario);
-                        }
-                    }
-                });
     }
 
     private ArrayList<Anuncio> adicionarAnuncios() {
