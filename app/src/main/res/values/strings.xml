@@ -16,4 +16,5 @@
     <string name="registro">Cadastrar Usuário</string>
     <string name="chat">Chat</string>
     <string name="menu_perfil">Perfil</string>
+    <string name="btn_pf_edit">Editar Informações</string>
 </resources>

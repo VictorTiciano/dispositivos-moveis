@@ -63,7 +63,6 @@ public class RegisterActivity extends AppCompatActivity {
         btn_rg_foto = findViewById(R.id.btn_rg_foto);
         image_foto = findViewById(R.id.image_view_foto);
 
-
         btn_rg_foto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -158,11 +157,8 @@ public class RegisterActivity extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(DocumentReference documentReference) {
                                         Log.i("Teste", documentReference.getId());
-
                                         Intent intent = new Intent(RegisterActivity.this, MensagensActivity.class);
-
                                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-
                                         startActivity(intent);
                                     }
                                 })
