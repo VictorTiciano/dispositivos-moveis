@@ -7,7 +7,7 @@
     tools:context=".RegisterActivity">
 
     <EditText
-        android:id="@+id/edit_text_rg_nome"
+        android:id="@+id/edit_text_rg_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -30,9 +30,9 @@
         android:inputType="number"
         android:minHeight="48dp"
         android:hint="CPF"
-        app:layout_constraintEnd_toEndOf="@+id/edit_text_rg_nome"
-        app:layout_constraintStart_toStartOf="@+id/edit_text_rg_nome"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_rg_nome" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_rg_name"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_rg_name"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_rg_name" />
 
     <EditText
         android:id="@+id/edit_text_rg_telefone"
@@ -74,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edit_text_rg_email" />
 
     <Button
-        android:id="@+id/btn_rg_salvar"
+        android:id="@+id/btn_im_cadastrar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"

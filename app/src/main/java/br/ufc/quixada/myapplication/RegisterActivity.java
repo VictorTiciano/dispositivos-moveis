@@ -32,6 +32,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.util.UUID;
 
+import br.ufc.quixada.myapplication.model.AnuncioFireBase;
 import br.ufc.quixada.myapplication.model.Usuario;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -46,17 +47,19 @@ public class RegisterActivity extends AppCompatActivity {
     Uri selectedUri;
     ImageView image_foto;
 
+    private FirebaseFirestore db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        edit_text_rg_nome = findViewById(R.id.edit_text_rg_nome);
+        edit_text_rg_nome = findViewById(R.id.edit_text_rg_name);
         edit_text_rg_cpf = findViewById(R.id.edit_text_rg_cpf);
         edit_text_rg_telefone = findViewById(R.id.edit_text_rg_telefone);
         edit_text_rg_email = findViewById(R.id.edit_text_rg_email);
         edit_text_rg_senha = findViewById(R.id.edit_text_rg_senha);
-        btn_rg_salvar = findViewById(R.id.btn_rg_salvar);
+        btn_rg_salvar = findViewById(R.id.btn_im_cadastrar);
         btn_rg_foto = findViewById(R.id.btn_rg_foto);
         image_foto = findViewById(R.id.image_view_foto);
 
@@ -73,6 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
                 criarUsuario();
             }
         });
+
     }
 
     @Override
@@ -83,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             Bitmap bitmap = null;
             try {
-                MediaStore.Images.Media.getBitmap(getContentResolver(), selectedUri);
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedUri);
                 image_foto.setImageDrawable(new BitmapDrawable(bitmap));
                 btn_rg_foto.setAlpha(0);
             }catch (IOException e){
@@ -174,4 +178,5 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
 }

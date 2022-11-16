@@ -1,7 +1,11 @@
 package br.ufc.quixada.myapplication;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +31,7 @@ import br.ufc.quixada.myapplication.model.Usuario;
 public class HomeActivity extends AppCompatActivity {
 
     Button btn_home_add_imovel;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private ArrayList<Anuncio> adicionarAnuncios() {
         ArrayList<Anuncio> anuncios = new ArrayList<Anuncio>();
+
         Anuncio e = new Anuncio("Casa 1", "Rua 1", R.drawable.img1, 10, 5, 7, 9, 12, 140000);
         anuncios.add(e);
         e = new Anuncio("Casa 2", "Rua 2", R.drawable.img2, 10, 5, 7, 9, 12, 140000);

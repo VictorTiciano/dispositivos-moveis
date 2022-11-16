@@ -11,28 +11,31 @@
         android:layout_margin="5dp" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right">
+        android:layout_gravity="right"
+        android:orientation="vertical">
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Titulo"
             android:id="@+id/nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:text="Titulo"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.SearchResult.Title" />
+
         <TextView
+            android:id="@+id/endereco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:text="Endereço"
-            android:id="@+id/endereco" />
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
         <TextView
+            android:id="@+id/preco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:text="Preco"
-            android:id="@+id/preco" />
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
     </LinearLayout>
 </LinearLayout>
