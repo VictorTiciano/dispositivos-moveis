@@ -7,129 +7,152 @@
     tools:context=".RegisterAnuncioActivity">
 
     <EditText
-        android:id="@+id/edit_text_rg_nome"
+        android:id="@+id/edit_text_im_titulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="204dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:hint="Titulo"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:hint="Titulo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edit_text_rg_cpf"
+        android:id="@+id/edit_text_im_preco"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Preço"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_im_garagem"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_im_garagem"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_im_garagem" />
+
+    <EditText
+        android:id="@+id/edit_text_im_endereco"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="Endereço"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:hint="Endereço"
-        app:layout_constraintEnd_toEndOf="@+id/edit_text_rg_nome"
-        app:layout_constraintStart_toStartOf="@+id/edit_text_rg_nome"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_rg_nome" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_im_titulo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_im_titulo"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_im_titulo" />
 
     <EditText
-        android:id="@+id/edit_text_rg_telefone"
+        android:id="@+id/edit_text_im_metros"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
-        android:minHeight="48dp"
         android:hint="Metros quadrados do terreno"
-        app:layout_constraintEnd_toEndOf="@+id/edit_text_rg_cpf"
-        app:layout_constraintStart_toStartOf="@+id/edit_text_rg_cpf"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_rg_cpf" />
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_im_endereco"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_im_endereco"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_im_endereco" />
 
     <EditText
-        android:id="@+id/edit_text_rg_email"
+        android:id="@+id/edit_text_im_quartos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
-        android:minHeight="48dp"
-        android:hint="Metros quadrados construidos"
-        app:layout_constraintEnd_toEndOf="@+id/edit_text_rg_telefone"
-        app:layout_constraintStart_toStartOf="@+id/edit_text_rg_telefone"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_rg_telefone" />
-
-    <EditText
-        android:id="@+id/edit_text_rg_senha"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="number"
-        android:minHeight="48dp"
         android:hint="Quantidade de quartos"
-        app:layout_constraintEnd_toEndOf="@+id/edit_text_rg_email"
-        app:layout_constraintStart_toStartOf="@+id/edit_text_rg_email"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_rg_email" />
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_im_metros_contruidos"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_im_metros_contruidos"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_im_metros_contruidos" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/edit_text_im_garagem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
-        android:minHeight="48dp"
-        android:hint="Quantidade de Banheiros"
-        app:layout_constraintEnd_toEndOf="@+id/edit_text_rg_senha"
-        app:layout_constraintStart_toStartOf="@+id/edit_text_rg_senha"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_rg_senha" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName7"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="number"
-        android:minHeight="48dp"
         android:hint="Quantidade de vagas de garagem"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName6"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName6"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_im_banheiros"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_im_banheiros"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_im_banheiros" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName8"
+        android:id="@+id/edit_text_im_banheiros"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Quantidade de Banheiros"
         android:inputType="number"
         android:minHeight="48dp"
-        android:hint="Preço"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName7"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName7"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_im_quartos"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_im_quartos"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_im_quartos" />
+
+    <EditText
+        android:id="@+id/edit_text_im_metros_contruidos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Metros quadrados construidos"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_im_metros"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_im_metros"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_im_metros" />
 
     <Button
-        android:id="@+id/btn_rg_salvar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/btn_rgi_create"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName8"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName8"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+        android:id="@+id/btn_im_foto"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button_rounded"
+        android:text="Foto"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_view_foto"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_im_foto"
+        app:layout_constraintEnd_toEndOf="@+id/btn_im_foto"
+        app:layout_constraintStart_toStartOf="@+id/btn_im_foto"
+        app:layout_constraintTop_toTopOf="@+id/btn_im_foto"
+        />
+
     <Button
-        android:id="@+id/btn_rgu_cancel"
+        android:id="@+id/btn_im_cadastrar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/btn_rgu_cancel"
-        app:layout_constraintEnd_toEndOf="@+id/btn_rg_salvar"
-        app:layout_constraintStart_toStartOf="@+id/btn_rg_salvar"
-        app:layout_constraintTop_toBottomOf="@+id/btn_rg_salvar" />
+        android:layout_marginBottom="16dp"
+        android:text="@string/btn_rgi_create"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_im_preco"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_im_preco" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
