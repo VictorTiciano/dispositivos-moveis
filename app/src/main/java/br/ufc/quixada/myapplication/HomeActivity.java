@@ -12,9 +12,17 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
+import java.util.UUID;
 
 import br.ufc.quixada.myapplication.model.Anuncio;
+import br.ufc.quixada.myapplication.model.Usuario;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -53,8 +61,30 @@ public class HomeActivity extends AppCompatActivity {
                 Intent intentH = new Intent(HomeActivity.this, MensagensActivity.class);
                 startActivity(intentH);
                 break;
+            case R.id.item_menu_perfil:
+                //ir para a tela de edição mas com os dados do usuario ja preenchidos
+                editarUsuario("TdX3WwjisqVyTslt5f4I8vdUJNv2");
+                Intent intentE = new Intent(HomeActivity.this, RegisterActivity.class);
+                startActivity(intentE);
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void editarUsuario(String id) {
+        Intent intent = new Intent(HomeActivity.this, RegisterActivity.class);
+        FirebaseFirestore.getInstance().collection("usuarios").whereEqualTo("uuid", id)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        for(QueryDocumentSnapshot document : task.getResult()){
+                            String key = "julio@gmail.com";
+                            Usuario usuario = (Usuario) document.getData().get(key);
+                            System.out.println(usuario);
+                        }
+                    }
+                });
     }
 
     private ArrayList<Anuncio> adicionarAnuncios() {
@@ -71,5 +101,4 @@ public class HomeActivity extends AppCompatActivity {
         anuncios.add(e);
         return anuncios;
     }
-
 }
