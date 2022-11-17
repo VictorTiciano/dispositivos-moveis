@@ -19,7 +19,7 @@ import java.util.List;
 
 import br.ufc.quixada.myapplication.model.AnuncioFireBase;
 
-public class AnuncioActivityBanco extends AppCompatActivity {
+public class AnuncioActivity extends AppCompatActivity {
 
     TextView textView_im_titulo;
     TextView textView_im_endereco;
@@ -36,11 +36,12 @@ public class AnuncioActivityBanco extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_anuncio_banco);
+        setContentView(R.layout.activity_anuncio);
 
         textView_im_titulo = findViewById(R.id.textview_im_titulo);
         textView_im_endereco = findViewById(R.id.textview_im_endereco);
         textView_im_MQTerreno = findViewById(R.id.textview_im_metros);
+
         textView_im_MQConstruidos = findViewById(R.id.textview_im_metros_contruidos);
         textView_im_qtdQuartos = findViewById(R.id.textview_im_quartos);
         textView_im_qtdBanheiros = findViewById(R.id.textview_im_banheiros);

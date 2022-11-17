@@ -63,7 +63,7 @@ public class HomeActivity extends AppCompatActivity {
         feed.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(HomeActivity.this, AnuncioActivityBanco.class);
+                Intent intent = new Intent(HomeActivity.this, AnuncioActivity.class);
                 startActivity(intent);
             }
         });
