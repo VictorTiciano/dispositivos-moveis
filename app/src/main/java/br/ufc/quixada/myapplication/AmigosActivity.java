@@ -24,30 +24,17 @@ import java.util.List;
 import br.ufc.quixada.myapplication.model.Usuario;
 
 public class AmigosActivity extends AppCompatActivity {
-
+    ArrayList<Usuario> listaAmigos = new ArrayList<>();
+    ArrayAdapter adapter;
+    ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_amigos);
 
-        ArrayList<Usuario> listaAmigos = new ArrayList<>();
-        Usuario u1 = new Usuario("Fulano", "5454", "2121", "f@gmail.com", "senha123");
-        Usuario u2 = new Usuario("Pedro Henrique", "5454", "2121", "ph@gmail.com", "senha123");
-        Usuario u3 = new Usuario("Jonas de Sousa", "5454", "2121", "jonas.s@gmail.com", "senha123");
-        Usuario u4 = new Usuario("Bonosalro", "5454", "2121", "bonosalro.patriota@gmail.com", "senha123");
-        Usuario u5 = new Usuario("Simone Tablet", "5454", "2121", "tabA7@gmail.com", "senha123");
-        Usuario u6 = new Usuario("Maria Julia", "5454", "2121", "maria.ju@gmail.com", "senha123");
-        Usuario u7 = new Usuario("Patricia", "5454", "2121", "patricia@gmail.com", "senha123");
-        listaAmigos.add(u1);
-        listaAmigos.add(u6);
-        listaAmigos.add(u7);
-        listaAmigos.add(u2);
-        listaAmigos.add(u3);
-        listaAmigos.add(u4);
-        listaAmigos.add(u5);
-
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listaAmigos);
-        ListView listView = (ListView) findViewById(R.id.list_view_amigos);
+        buscarUsuarios();
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listaAmigos);
+        listView = (ListView) findViewById(R.id.list_view_amigos);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -56,7 +43,7 @@ public class AmigosActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        buscarUsuarios();
+
     }
 
     private void buscarUsuarios() {
@@ -70,10 +57,11 @@ public class AmigosActivity extends AppCompatActivity {
                         }
                         List<DocumentSnapshot> documents = value.getDocuments();
                         for (DocumentSnapshot doc: documents) {
+                            listaAmigos.add(doc.toObject(Usuario.class));
                             Usuario usuario = doc.toObject(Usuario.class);
+                            adapter.notifyDataSetChanged();
                             Log.d("Teste", usuario.getEmail());
                         }
-
                     }
                 });
     }

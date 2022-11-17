@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PerfilActivity">
+    tools:context=".EditPerfilActivity">
 
-    <TextView
-        android:id="@+id/edit_text_pf_nome"
+    <EditText
+        android:id="@+id/edit_text_edp_nome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -15,71 +15,76 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Nome"
+        android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_pf_foto" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_edp_foto" />
 
-    <TextView
-        android:id="@+id/edit_text_pf_cpf"
+    <EditText
+        android:id="@+id/edit_text_edp_cpf"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:inputType="number"
         android:minHeight="48dp"
         android:hint="CPF"
-        app:layout_constraintEnd_toEndOf="@+id/edit_text_pf_nome"
-        app:layout_constraintStart_toStartOf="@+id/edit_text_pf_nome"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_pf_nome" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_edp_nome"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_edp_nome"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_edp_nome" />
 
-    <TextView
-        android:id="@+id/edit_text_pf_telefone"
+    <EditText
+        android:id="@+id/edit_text_edp_telefone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:inputType="number"
         android:minHeight="48dp"
         android:hint="Telefone"
-        app:layout_constraintEnd_toEndOf="@+id/edit_text_pf_cpf"
-        app:layout_constraintStart_toStartOf="@+id/edit_text_pf_cpf"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_pf_cpf" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_edp_cpf"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_edp_cpf"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_edp_cpf" />
 
-    <TextView
-        android:id="@+id/edit_text_pf_email"
+    <EditText
+        android:id="@+id/edit_text_edp_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:hint="Email"
-        app:layout_constraintEnd_toEndOf="@+id/edit_text_pf_telefone"
-        app:layout_constraintStart_toStartOf="@+id/edit_text_pf_telefone"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_pf_telefone" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_edp_telefone"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_edp_telefone"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_edp_telefone" />
 
-    <TextView
-        android:id="@+id/edit_text_pf_senha"
+    <EditText
+        android:id="@+id/edit_text_edp_senha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:inputType="text"
         android:minHeight="48dp"
         android:hint="Senha"
-        app:layout_constraintEnd_toEndOf="@+id/edit_text_pf_email"
-        app:layout_constraintStart_toStartOf="@+id/edit_text_pf_email"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_pf_email" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_edp_email"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_edp_email"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_edp_email" />
 
     <Button
-        android:id="@+id/btn_pf_edit"
+        android:id="@+id/btn_edp_edit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/btn_pf_edit"
-        app:layout_constraintEnd_toEndOf="@+id/edit_text_pf_senha"
-        app:layout_constraintStart_toStartOf="@+id/edit_text_pf_senha"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_pf_senha" />
+        android:text="@string/btn_edp_create"
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_edp_senha"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_edp_senha"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_edp_senha" />
 
     <Button
-        android:id="@+id/btn_pf_foto"
+        android:id="@+id/btn_edp_foto"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="16dp"
@@ -91,13 +96,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/image_view_pf_foto"
+        android:id="@+id/image_view_edp_foto"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_pf_foto"
-        app:layout_constraintEnd_toEndOf="@+id/btn_pf_foto"
-        app:layout_constraintStart_toStartOf="@+id/btn_pf_foto"
-        app:layout_constraintTop_toTopOf="@+id/btn_pf_foto"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_edp_foto"
+        app:layout_constraintEnd_toEndOf="@+id/btn_edp_foto"
+        app:layout_constraintStart_toStartOf="@+id/btn_edp_foto"
+        app:layout_constraintTop_toTopOf="@+id/btn_edp_foto"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

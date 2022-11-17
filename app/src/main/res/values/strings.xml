@@ -17,4 +17,5 @@
     <string name="chat">Chat</string>
     <string name="menu_perfil">Perfil</string>
     <string name="btn_pf_edit">Editar Informações</string>
+    <string name="btn_edp_create">Salvar Alterações</string>
 </resources>
