@@ -11,13 +11,14 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import br.ufc.quixada.myapplication.model.Anuncio;
+import br.ufc.quixada.myapplication.model.AnuncioFireBase;
 
-public class FeedAdapter extends ArrayAdapter<Anuncio> {
+public class FeedAdapter extends ArrayAdapter<AnuncioFireBase> {
 
     private final Context context;
-    private final ArrayList<Anuncio> anuncios;
+    private final ArrayList<AnuncioFireBase> anuncios;
 
-    public FeedAdapter(Context context, ArrayList<Anuncio> anuncios) {
+    public FeedAdapter(Context context, ArrayList<AnuncioFireBase> anuncios) {
         super(context, R.layout.activity_feed, anuncios);
         this.context = context;
         this.anuncios = anuncios;
@@ -36,8 +37,8 @@ public class FeedAdapter extends ArrayAdapter<Anuncio> {
 
         anuncio.setText(anuncios.get(position).getTitulo());
         endereco.setText(anuncios.get(position).getEndereco());
-        preco.setText(Double.toString(anuncios.get(position).getPreco()));
-        imagem.setImageResource(anuncios.get(position).getImg());
+        preco.setText(anuncios.get(position).getPreco());
+        imagem.setImageResource(R.drawable.img5);
         return rowView;
     }
 }

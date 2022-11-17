@@ -9,29 +9,37 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import br.ufc.quixada.myapplication.model.Anuncio;
+import br.ufc.quixada.myapplication.model.AnuncioFireBase;
 import br.ufc.quixada.myapplication.model.Usuario;
 
 public class HomeActivity extends AppCompatActivity {
 
     Button btn_home_add_imovel;
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    ArrayList<AnuncioFireBase> anuncios = new ArrayList<AnuncioFireBase>();
+    ArrayAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         ListView feed = (ListView) findViewById(R.id.list_view_home);
-        ArrayAdapter adapter = new FeedAdapter(this, adicionarAnuncios());
+        adapter = new FeedAdapter(this, adicionarAnuncios());
         feed.setAdapter(adapter);
 
         btn_home_add_imovel = findViewById(R.id.btn_home_add_imovel);
@@ -48,6 +56,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, RegisterAnuncioActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        feed.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(HomeActivity.this, AnuncioActivityBanco.class);
                 startActivity(intent);
             }
         });
@@ -75,19 +91,22 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private ArrayList<Anuncio> adicionarAnuncios() {
-        ArrayList<Anuncio> anuncios = new ArrayList<Anuncio>();
+    private ArrayList<AnuncioFireBase> adicionarAnuncios() {
 
-        Anuncio e = new Anuncio("Casa 1", "Rua 1", R.drawable.img1, 10, 5, 7, 9, 12, 140000);
-        anuncios.add(e);
-        e = new Anuncio("Casa 2", "Rua 2", R.drawable.img2, 10, 5, 7, 9, 12, 140000);
-        anuncios.add(e);
-        e = new Anuncio("Casa 3", "Rua 3", R.drawable.img3, 10, 5, 7, 9, 12, 140000);
-        anuncios.add(e);
-        e = new Anuncio("Casa 4", "Rua 4", R.drawable.img4, 10, 5, 7, 9, 12, 140000);
-        anuncios.add(e);
-        e = new Anuncio("Casa 5", "Rua 5", R.drawable.img5, 10, 5, 7, 9, 12, 140000);
-        anuncios.add(e);
-        return anuncios;
+        FirebaseFirestore.getInstance().collection("anuncios").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null)
+                    return;
+
+                List<DocumentSnapshot> documents = value.getDocuments();
+                for (DocumentSnapshot doc: documents) {
+                    anuncios.add(doc.toObject(AnuncioFireBase.class));
+                    AnuncioFireBase anuncioFireBase = doc.toObject(AnuncioFireBase.class);
+                    adapter.notifyDataSetChanged();
+                }
+            }
+        });
+            return anuncios;
     }
 }
