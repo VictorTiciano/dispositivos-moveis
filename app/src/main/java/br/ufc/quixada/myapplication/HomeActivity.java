@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,17 +35,20 @@ import java.util.UUID;
 import br.ufc.quixada.myapplication.model.Anuncio;
 import br.ufc.quixada.myapplication.model.AnuncioFireBase;
 import br.ufc.quixada.myapplication.model.Usuario;
+import br.ufc.quixada.myapplication.transactions.Constants;
 
 public class HomeActivity extends AppCompatActivity {
 
     Button btn_home_add_imovel;
     ArrayList<AnuncioFireBase> anuncios = new ArrayList<AnuncioFireBase>();
     ArrayAdapter adapter;
+    int selected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        selected = -1;
 
         ListView feed = (ListView) findViewById(R.id.list_view_home);
         adapter = new FeedAdapter(this, adicionarAnuncios());
@@ -63,8 +67,8 @@ public class HomeActivity extends AppCompatActivity {
         feed.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(HomeActivity.this, AnuncioActivity.class);
-                startActivity(intent);
+                selected = i;
+                clicarEditar();
             }
         });
     }
@@ -83,13 +87,28 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intentH);
                 break;
             case R.id.item_menu_perfil:
-                //ir para a tela de edição mas com os dados do usuario ja preenchidos
                 Intent intentE = new Intent(HomeActivity.this, PerfilActivity.class);
                 startActivity(intentE);
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void clicarEditar() {
+
+        if (selected >= 0) {
+            Intent intent = new Intent(this, AnuncioActivity.class);
+
+            AnuncioFireBase anuncioFireBase = anuncios.get(selected);
+
+            intent.putExtra("id", anuncioFireBase.getId());
+
+            startActivityForResult(intent, Constants.REQUEST_EDIT);
+        } else {
+            Toast.makeText(HomeActivity.this, "Selecione um Item", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     private ArrayList<AnuncioFireBase> adicionarAnuncios() {
 

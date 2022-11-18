@@ -132,24 +132,15 @@ public class RegisterAnuncioActivity extends AppCompatActivity {
 
                         AnuncioFireBase anuncio = new AnuncioFireBase(uid,titulo, endereco,fotoUrl,mtQuadradosTerreno,mtQuadradosContruido,qtdQuartos,qtdBanheiros,qtdGaragem,preco);
 
-                        FirebaseFirestore.getInstance().collection("anuncios/")
-                                .add(anuncio)
-                                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        FirebaseFirestore.getInstance().collection("anuncios")
+                                .document(anuncio.getId())
+                                .set(anuncio).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
-                                    public void onSuccess(DocumentReference documentReference) {
-
+                                    public void onSuccess(Void unused) {
                                         Intent intent = new Intent(RegisterAnuncioActivity.this, HomeActivity.class);
-
                                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-
                                         startActivity(intent);
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Log.i("Teste", e.getMessage());
-                                    }
+                                    };
                                 });
                     }
                 });

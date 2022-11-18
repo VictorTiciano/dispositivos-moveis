@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -54,7 +55,6 @@ public class AnuncioActivity extends AppCompatActivity {
         textView_im_qtdBanheiros = findViewById(R.id.textview_im_banheiros);
         textView_im_qtdVagasGaragem = findViewById(R.id.textview_im_garagem);
         textView_im_preco = findViewById(R.id.textview_im_preco);
-
         FirebaseFirestore.getInstance().collection("/anuncios")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
@@ -66,7 +66,7 @@ public class AnuncioActivity extends AppCompatActivity {
                         List<DocumentSnapshot> documents = value.getDocuments();
                         for (DocumentSnapshot doc : documents) {
                             anuncioFireBase = doc.toObject(AnuncioFireBase.class);
-                            if (anuncioFireBase.getId() == 1) {
+                            if (anuncioFireBase.getId().equals(getIntent().getExtras().get("id"))) {
 
                                 textView_im_titulo.setText(anuncioFireBase.getTitulo());
                                 textView_im_endereco.setText(anuncioFireBase.getEndereco());

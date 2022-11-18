@@ -1,6 +1,7 @@
 package br.ufc.quixada.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,10 @@ public class FeedAdapter extends ArrayAdapter<AnuncioFireBase> {
         endereco.setText(anuncios.get(position).getEndereco());
         preco.setText(anuncios.get(position).getPreco());
         imagem.setImageResource(R.drawable.img5);
+
+        Intent intent = new Intent();
+        intent.putExtra("id",anuncios.get(position).getId());
+
         return rowView;
     }
 }
