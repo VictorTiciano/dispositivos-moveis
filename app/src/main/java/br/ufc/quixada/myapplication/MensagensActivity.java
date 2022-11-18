@@ -2,7 +2,6 @@ package br.ufc.quixada.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -72,7 +71,6 @@ public class MensagensActivity extends AppCompatActivity {
 
     private void verificaAutenticacao() {
         if (FirebaseAuth.getInstance().getUid() == null) {
-            Log.i("Teste --", FirebaseAuth.getInstance().getUid());
             Intent intent = new Intent(MensagensActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);

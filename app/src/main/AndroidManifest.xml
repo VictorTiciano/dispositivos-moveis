@@ -15,14 +15,20 @@
         tools:targetApi="31">
         <activity
             android:name=".EditPerfilActivity"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/edt_perfil_act">
             <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PerfilActivity" />
         </activity>
         <activity
             android:name=".PerfilActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/peril_act">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
         <activity
             android:name=".ChatActivity"
             android:exported="false"

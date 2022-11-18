@@ -1,9 +1,5 @@
 package br.ufc.quixada.myapplication;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -17,13 +13,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -32,7 +31,6 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.util.UUID;
 
-import br.ufc.quixada.myapplication.model.AnuncioFireBase;
 import br.ufc.quixada.myapplication.model.Usuario;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -46,6 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button btn_rg_foto;
     Uri selectedUri;
     ImageView image_foto;
+    private FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
     private FirebaseFirestore db;
 
@@ -82,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 0){
+        if (requestCode == 0) {
             selectedUri = data.getData();
 
             Bitmap bitmap = null;
@@ -90,27 +89,27 @@ public class RegisterActivity extends AppCompatActivity {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedUri);
                 image_foto.setImageDrawable(new BitmapDrawable(bitmap));
                 btn_rg_foto.setAlpha(0);
-            }catch (IOException e){
+            } catch (IOException e) {
 
             }
 
         }
     }
 
-    private void selecionarFoto(){
+    private void selecionarFoto() {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         startActivityForResult(intent, 0);
     }
 
-    private void criarUsuario(){
+    private void criarUsuario() {
         String nome = edit_text_rg_nome.getText().toString();
         String cpf = edit_text_rg_cpf.getText().toString();
         String telefone = edit_text_rg_telefone.getText().toString();
         String email = edit_text_rg_email.getText().toString();
         String senha = edit_text_rg_senha.getText().toString();
 
-        if(nome == null || nome.isEmpty() || cpf == null || cpf.isEmpty() || telefone == null || telefone.isEmpty() || email == null || email.isEmpty() || senha == null || senha.isEmpty()){
+        if (nome == null || nome.isEmpty() || cpf == null || cpf.isEmpty() || telefone == null || telefone.isEmpty() || email == null || email.isEmpty() || senha == null || senha.isEmpty()) {
             Toast.makeText(this, "Todos os campos devem ser preenchidos", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -118,7 +117,7 @@ public class RegisterActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Log.i("Teste", task.getResult().getUser().getUid());
                             salvarUsuarioNoFirebase();
                         }
@@ -131,9 +130,10 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
     }
-    private void salvarUsuarioNoFirebase(){
+
+    private void salvarUsuarioNoFirebase() {
         String filename = UUID.randomUUID().toString();
-        final StorageReference referencia = FirebaseStorage.getInstance().getReference("/images/"+filename);
+        final StorageReference referencia = FirebaseStorage.getInstance().getReference("/images/" + filename);
         referencia.putFile(selectedUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -149,23 +149,16 @@ public class RegisterActivity extends AppCompatActivity {
                         String senha = edit_text_rg_senha.getText().toString();
                         String fotoUrl = uri.toString();
 
-                        Usuario usuario = new Usuario(uid,nome, cpf,telefone,email,senha, fotoUrl);
+                        Usuario usuario = new Usuario(uid, nome, cpf, telefone, email, senha, fotoUrl);
 
                         FirebaseFirestore.getInstance().collection("usuarios")
-                                .add(usuario)
-                                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                .document(usuario.getUuid())
+                                .set(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
-                                    public void onSuccess(DocumentReference documentReference) {
-                                        Log.i("Teste", documentReference.getId());
+                                    public void onSuccess(Void unused) {
                                         Intent intent = new Intent(RegisterActivity.this, MensagensActivity.class);
                                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Log.i("Teste", e.getMessage());
                                     }
                                 });
                     }
