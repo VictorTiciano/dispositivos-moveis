@@ -51,6 +51,8 @@ public class RegisterAnuncioActivity extends AppCompatActivity {
     Uri selectedUri;
     ImageView image_foto;
 
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,7 +132,7 @@ public class RegisterAnuncioActivity extends AppCompatActivity {
 
                         AnuncioFireBase anuncio = new AnuncioFireBase(uid,titulo, endereco,fotoUrl,mtQuadradosTerreno,mtQuadradosContruido,qtdQuartos,qtdBanheiros,qtdGaragem,preco);
 
-                        FirebaseFirestore.getInstance().collection("anuncios")
+                        FirebaseFirestore.getInstance().collection("anuncios/")
                                 .add(anuncio)
                                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                     @Override

@@ -2,6 +2,10 @@ package br.ufc.quixada.myapplication.model;
 
 public class AnuncioFireBase {
 
+    public static int geradorID = 0;
+
+    private int id;
+
     private String uuid;
 
     private String titulo;
@@ -26,6 +30,7 @@ public class AnuncioFireBase {
     }
 
     public AnuncioFireBase(String uuid, String titulo, String endereco, String img, String metrosQuadradosTerreno, String metrosQuadradosConstruidos, String quantidadeQuartos, String quantidadeBanheiros, String quantidadeVagasGaragem, String preco) {
+        this.id = geradorID++;
         this.uuid = uuid;
         this.titulo = titulo;
         this.endereco = endereco;
@@ -36,6 +41,14 @@ public class AnuncioFireBase {
         this.quantidadeBanheiros = quantidadeBanheiros;
         this.quantidadeVagasGaragem = quantidadeVagasGaragem;
         this.preco = preco;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUuid() {
