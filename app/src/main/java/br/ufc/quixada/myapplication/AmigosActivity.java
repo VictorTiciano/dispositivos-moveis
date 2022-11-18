@@ -57,6 +57,8 @@ public class AmigosActivity extends AppCompatActivity {
                         }
                         List<DocumentSnapshot> documents = value.getDocuments();
                         for (DocumentSnapshot doc: documents) {
+                            Log.d("Teste", "referencia:"+doc.getReference());
+                            FirebaseFirestore.getInstance().collection("usuarios").document(String.valueOf(doc.getReference())).update("nome", "Teste");
                             listaAmigos.add(doc.toObject(Usuario.class));
                             Usuario usuario = doc.toObject(Usuario.class);
                             adapter.notifyDataSetChanged();

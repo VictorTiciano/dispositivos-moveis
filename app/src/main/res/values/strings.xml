@@ -18,4 +18,6 @@
     <string name="menu_perfil">Perfil</string>
     <string name="btn_pf_edit">Editar Informações</string>
     <string name="btn_edp_create">Salvar Alterações</string>
+    <string name="peril_act">Perfil</string>
+    <string name="edt_perfil_act">Editar Perfil</string>
 </resources>

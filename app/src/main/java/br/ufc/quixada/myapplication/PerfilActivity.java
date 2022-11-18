@@ -18,7 +18,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.ufc.quixada.myapplication.model.Usuario;
@@ -64,9 +63,6 @@ public class PerfilActivity extends AppCompatActivity {
                                 edit_text_pf_telefone.setText(usuario.getTelefone());
                                 edit_text_pf_email.setText(usuario.getEmail());
                                 edit_text_pf_senha.setText(usuario.getSenha());
-
-                                //edit_text_pf_senha.setText(usuario.getFoto());
-                                //image_pf_foto.setImageURI(usuario.getFoto().);
                             }
                         }
                     }
