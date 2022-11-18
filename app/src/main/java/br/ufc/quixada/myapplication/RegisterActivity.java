@@ -156,7 +156,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 .set(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
-                                        Intent intent = new Intent(RegisterActivity.this, MensagensActivity.class);
+                                        Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
                                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);
                                     }

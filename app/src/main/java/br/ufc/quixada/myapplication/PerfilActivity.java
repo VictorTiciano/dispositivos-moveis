@@ -8,10 +8,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -32,6 +36,9 @@ public class PerfilActivity extends AppCompatActivity {
     TextView edit_text_pf_senha;
     ImageView image_pf_foto;
     Button btn_pf_edit;
+    Button btn_pf_logout;
+    Button btn_pf_delete_conta;
+    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +51,8 @@ public class PerfilActivity extends AppCompatActivity {
         edit_text_pf_senha = findViewById(R.id.edit_text_pf_senha);
         image_pf_foto = findViewById(R.id.image_view_pf_foto);
         btn_pf_edit = findViewById(R.id.btn_pf_edit);
+        btn_pf_logout = findViewById(R.id.btn_pf_logout);
+        btn_pf_delete_conta = findViewById(R.id.btn_pf_delete_conta);
         usuarioId = FirebaseAuth.getInstance().getUid();
 
         FirebaseFirestore.getInstance().collection("/usuarios")
@@ -73,6 +82,43 @@ public class PerfilActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(PerfilActivity.this, EditPerfilActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btn_pf_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                verificaAutenticacao();
+            }
+        });
+
+        btn_pf_delete_conta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                apagarUsuario(FirebaseAuth.getInstance().getUid());
+            }
+        });
+    }
+
+    private void verificaAutenticacao() {
+        if (FirebaseAuth.getInstance().getUid() == null) {
+            Intent intent = new Intent(PerfilActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+    }
+
+    private void apagarUsuario(String srt) {
+        DocumentReference docRef = firestore.collection("usuarios").document(srt);
+        docRef.delete();
+
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot doc = task.getResult();
+                }
             }
         });
     }

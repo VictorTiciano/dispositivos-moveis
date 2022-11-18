@@ -20,4 +20,6 @@
     <string name="btn_edp_create">Salvar Alterações</string>
     <string name="peril_act">Perfil</string>
     <string name="edt_perfil_act">Editar Perfil</string>
+    <string name="btn_pf_logout">Logout</string>
+    <string name="btn_delete_conta">Excluir conta</string>
 </resources>
