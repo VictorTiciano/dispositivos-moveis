@@ -1,23 +1,41 @@
 package br.ufc.quixada.myapplication;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
-
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.core.UserData;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.List;
 
 import br.ufc.quixada.myapplication.model.AnuncioFireBase;
+import br.ufc.quixada.myapplication.model.Usuario;
+import br.ufc.quixada.myapplication.transactions.Constants;
 
 public class AnuncioActivity extends AppCompatActivity {
+
+    String selected;
 
     TextView textView_im_titulo;
     TextView textView_im_endereco;
@@ -27,6 +45,7 @@ public class AnuncioActivity extends AppCompatActivity {
     TextView textView_im_qtdBanheiros;
     TextView textView_im_qtdVagasGaragem;
     TextView textView_im_preco;
+    Button btn_edit_anuncio;
 
     AnuncioFireBase anuncioFireBase;
 
@@ -43,18 +62,28 @@ public class AnuncioActivity extends AppCompatActivity {
         textView_im_qtdBanheiros = findViewById(R.id.textview_im_banheiros);
         textView_im_qtdVagasGaragem = findViewById(R.id.textview_im_garagem);
         textView_im_preco = findViewById(R.id.textview_im_preco);
+        btn_edit_anuncio = findViewById(R.id.btn_edit_im_anuncio);
+
+        btn_edit_anuncio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clicarEditar();
+            }
+        });
+
         FirebaseFirestore.getInstance().collection("/anuncios")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                         if (error != null) {
-                            Log.e("Teste", error.getMessage(), error);
                             return;
                         }
                         List<DocumentSnapshot> documents = value.getDocuments();
                         for (DocumentSnapshot doc : documents) {
                             anuncioFireBase = doc.toObject(AnuncioFireBase.class);
                             if (anuncioFireBase.getId().equals(getIntent().getExtras().get("id"))) {
+
+                                selected = anuncioFireBase.getId();
 
                                 textView_im_titulo.setText(anuncioFireBase.getTitulo());
                                 textView_im_endereco.setText(anuncioFireBase.getEndereco());
@@ -70,5 +99,14 @@ public class AnuncioActivity extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    public void clicarEditar() {
+
+        Intent intent = new Intent(AnuncioActivity.this, EditAnuncioActivity.class);
+
+        intent.putExtra("id", selected);
+
+        startActivityForResult(intent, Constants.REQUEST_EDIT);
     }
 }

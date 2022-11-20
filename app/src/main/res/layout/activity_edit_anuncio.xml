@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".RegisterAnuncioActivity">
 
-    <TextView
-        android:id="@+id/textview_im_titulo"
+    <EditText
+        android:id="@+id/edit_im_titulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -22,8 +22,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textview_im_preco"
+    <EditText
+        android:id="@+id/edit_im_preco"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -31,13 +31,13 @@
         android:hint="Preço"
         android:inputType="number"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/textview_im_garagem"
+        app:layout_constraintEnd_toEndOf="@+id/edit_im_garagem"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textview_im_garagem"
-        app:layout_constraintTop_toBottomOf="@+id/textview_im_garagem" />
+        app:layout_constraintStart_toStartOf="@+id/edit_im_garagem"
+        app:layout_constraintTop_toBottomOf="@+id/edit_im_garagem" />
 
-    <TextView
-        android:id="@+id/textview_im_endereco"
+    <EditText
+        android:id="@+id/edit_im_endereco"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -45,13 +45,13 @@
         android:hint="Endereço"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/textview_im_titulo"
+        app:layout_constraintEnd_toEndOf="@+id/edit_im_titulo"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textview_im_titulo"
-        app:layout_constraintTop_toBottomOf="@+id/textview_im_titulo" />
+        app:layout_constraintStart_toStartOf="@+id/edit_im_titulo"
+        app:layout_constraintTop_toBottomOf="@+id/edit_im_titulo" />
 
-    <TextView
-        android:id="@+id/textview_im_metros"
+    <EditText
+        android:id="@+id/edit_im_metros"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -59,13 +59,13 @@
         android:hint="Metros quadrados do terreno"
         android:inputType="number"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/textview_im_endereco"
+        app:layout_constraintEnd_toEndOf="@+id/edit_im_endereco"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textview_im_endereco"
-        app:layout_constraintTop_toBottomOf="@+id/textview_im_endereco" />
+        app:layout_constraintStart_toStartOf="@+id/edit_im_endereco"
+        app:layout_constraintTop_toBottomOf="@+id/edit_im_endereco" />
 
-    <TextView
-        android:id="@+id/textview_im_quartos"
+    <EditText
+        android:id="@+id/edit_im_quartos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -73,13 +73,13 @@
         android:hint="Quantidade de quartos"
         android:inputType="number"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/textview_im_metros_contruidos"
+        app:layout_constraintEnd_toEndOf="@+id/edit_im_metros_contruidos"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textview_im_metros_contruidos"
-        app:layout_constraintTop_toBottomOf="@+id/textview_im_metros_contruidos" />
+        app:layout_constraintStart_toStartOf="@+id/edit_im_metros_contruidos"
+        app:layout_constraintTop_toBottomOf="@+id/edit_im_metros_contruidos" />
 
-    <TextView
-        android:id="@+id/textview_im_garagem"
+    <EditText
+        android:id="@+id/edit_im_garagem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -87,13 +87,13 @@
         android:hint="Quantidade de vagas de garagem"
         android:inputType="number"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/textview_im_banheiros"
+        app:layout_constraintEnd_toEndOf="@+id/edit_im_banheiros"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textview_im_banheiros"
-        app:layout_constraintTop_toBottomOf="@+id/textview_im_banheiros" />
+        app:layout_constraintStart_toStartOf="@+id/edit_im_banheiros"
+        app:layout_constraintTop_toBottomOf="@+id/edit_im_banheiros" />
 
-    <TextView
-        android:id="@+id/textview_im_banheiros"
+    <EditText
+        android:id="@+id/edit_im_banheiros"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -101,13 +101,13 @@
         android:hint="Quantidade de Banheiros"
         android:inputType="number"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/textview_im_quartos"
+        app:layout_constraintEnd_toEndOf="@+id/edit_im_quartos"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textview_im_quartos"
-        app:layout_constraintTop_toBottomOf="@+id/textview_im_quartos" />
+        app:layout_constraintStart_toStartOf="@+id/edit_im_quartos"
+        app:layout_constraintTop_toBottomOf="@+id/edit_im_quartos" />
 
-    <TextView
-        android:id="@+id/textview_im_metros_contruidos"
+    <EditText
+        android:id="@+id/edit_im_metros_contruidos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -115,13 +115,13 @@
         android:hint="Metros quadrados construidos"
         android:inputType="number"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/textview_im_metros"
+        app:layout_constraintEnd_toEndOf="@+id/edit_im_metros"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textview_im_metros"
-        app:layout_constraintTop_toBottomOf="@+id/textview_im_metros" />
+        app:layout_constraintStart_toStartOf="@+id/edit_im_metros"
+        app:layout_constraintTop_toBottomOf="@+id/edit_im_metros" />
 
     <Button
-        android:id="@+id/btn_im_foto"
+        android:id="@+id/btn_edit_im_foto"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="12dp"
@@ -134,24 +134,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/image_view_foto"
+        android:id="@+id/image_edit_view_foto"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_im_foto"
-        app:layout_constraintEnd_toEndOf="@+id/btn_im_foto"
-        app:layout_constraintStart_toStartOf="@+id/btn_im_foto"
-        app:layout_constraintTop_toTopOf="@+id/btn_im_foto"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_edit_im_foto"
+        app:layout_constraintEnd_toEndOf="@+id/btn_edit_im_foto"
+        app:layout_constraintStart_toStartOf="@+id/btn_edit_im_foto"
+        app:layout_constraintTop_toTopOf="@+id/btn_edit_im_foto"
         />
 
     <Button
-        android:id="@+id/btn_edit_im_anuncio"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_edit_im_cadastrar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Editar"
+        android:layout_marginBottom="16dp"
+        android:text="Salvar Alterações"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_im_preco" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_im_preco"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_im_preco" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
