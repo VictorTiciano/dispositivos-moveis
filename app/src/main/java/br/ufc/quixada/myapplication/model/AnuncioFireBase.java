@@ -43,6 +43,17 @@ public class AnuncioFireBase {
         this.preco = preco;
     }
 
+    public AnuncioFireBase(String titulo, String endereco, String metrosQuadradosTerreno, String metrosQuadradosConstruidos, String quantidadeQuartos, String quantidadeBanheiros, String quantidadeVagasGaragem, String preco) {
+        this.titulo = titulo;
+        this.endereco = endereco;
+        this.metrosQuadradosTerreno = metrosQuadradosTerreno;
+        this.metrosQuadradosConstruidos = metrosQuadradosConstruidos;
+        this.quantidadeQuartos = quantidadeQuartos;
+        this.quantidadeBanheiros = quantidadeBanheiros;
+        this.quantidadeVagasGaragem = quantidadeVagasGaragem;
+        this.preco = preco;
+    }
+
     public String getId() {
         return id;
     }

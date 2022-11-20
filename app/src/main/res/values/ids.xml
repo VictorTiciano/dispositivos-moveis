@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="edit_im_titulo" type="id" />
+    <item name="edit_im_preco" type="id" />
+    <item name="edit_im_garagem" type="id" />
+    <item name="edit_im_endereco" type="id" />
+    <item name="edit_im_metros" type="id" />
+    <item name="edit_im_quartos" type="id" />
+    <item name="edit_im_metros_contruidos" type="id" />
+    <item name="edit_im_banheiros" type="id" />
+    <item name="btn_edit_im_foto" type="id" />
+    <item name="image_edit_view_foto" type="id" />
+    <item name="btn_edit_im_cadastrar" type="id" />
+</resources>
