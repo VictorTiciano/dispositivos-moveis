@@ -1,36 +1,28 @@
 package br.ufc.quixada.myapplication;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.core.UserData;
-import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.List;
 
 import br.ufc.quixada.myapplication.model.AnuncioFireBase;
-import br.ufc.quixada.myapplication.model.Usuario;
 import br.ufc.quixada.myapplication.transactions.Constants;
 
 public class AnuncioActivity extends AppCompatActivity {
@@ -46,8 +38,10 @@ public class AnuncioActivity extends AppCompatActivity {
     TextView textView_im_qtdVagasGaragem;
     TextView textView_im_preco;
     Button btn_edit_anuncio;
+    Button btn_delete_anuncio;
 
     AnuncioFireBase anuncioFireBase;
+    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +57,8 @@ public class AnuncioActivity extends AppCompatActivity {
         textView_im_qtdVagasGaragem = findViewById(R.id.textview_im_garagem);
         textView_im_preco = findViewById(R.id.textview_im_preco);
         btn_edit_anuncio = findViewById(R.id.btn_edit_im_anuncio);
+        btn_delete_anuncio = findViewById(R.id.btn_delete_anuncio);
 
-        btn_edit_anuncio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clicarEditar();
-            }
-        });
 
         FirebaseFirestore.getInstance().collection("/anuncios")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -99,6 +88,37 @@ public class AnuncioActivity extends AppCompatActivity {
                     }
                 });
 
+        btn_delete_anuncio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                apagarAnuncio();
+                Intent intent = new Intent(AnuncioActivity.this, HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
+        btn_edit_anuncio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clicarEditar();
+            }
+        });
+
+    }
+
+    private void apagarAnuncio() {
+        DocumentReference docRef = firestore.collection("anuncios").document(selected);
+        docRef.delete();
+
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot doc = task.getResult();
+                }
+            }
+        });
     }
 
     public void clicarEditar() {
