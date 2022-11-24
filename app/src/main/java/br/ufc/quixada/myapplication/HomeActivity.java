@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -120,9 +121,12 @@ public class HomeActivity extends AppCompatActivity {
 
                 List<DocumentSnapshot> documents = value.getDocuments();
                 for (DocumentSnapshot doc: documents) {
-                    anuncios.add(doc.toObject(AnuncioFireBase.class));
-                    AnuncioFireBase anuncioFireBase = doc.toObject(AnuncioFireBase.class);
-                    adapter.notifyDataSetChanged();
+                    //if(!doc.toObject(AnuncioFireBase.class).getUuid().equals(FirebaseAuth.getInstance().getUid())){
+                        anuncios.add(doc.toObject(AnuncioFireBase.class));
+                        AnuncioFireBase anuncioFireBase = doc.toObject(AnuncioFireBase.class);
+                        adapter.notifyDataSetChanged();
+                    //}
+
                 }
             }
         });

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,7 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -96,7 +100,9 @@ public class PerfilActivity extends AppCompatActivity {
         btn_pf_delete_conta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                apagarUsuario(FirebaseAuth.getInstance().getUid());
+                apagarUsuario(FirebaseAuth.getInstance().getUid(),
+                        edit_text_pf_email.getText().toString(),
+                        edit_text_pf_senha.getText().toString());
             }
         });
     }
@@ -109,9 +115,33 @@ public class PerfilActivity extends AppCompatActivity {
         }
     }
 
-    private void apagarUsuario(String srt) {
+    private void apagarUsuario(String srt, String email, String senha) {
         DocumentReference docRef = firestore.collection("usuarios").document(srt);
         docRef.delete();
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        AuthCredential credential = EmailAuthProvider.getCredential(email, senha);
+
+        // Prompt the user to re-provide their sign-in credentials
+        if (user != null) {
+            user.reauthenticate(credential)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            user.delete()
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Log.d("TAG", "User account deleted.");
+                                                startActivity(new Intent(PerfilActivity.this, MainActivity.class));
+                                                Toast.makeText(PerfilActivity.this, "Deleted User Successfully,", Toast.LENGTH_LONG).show();
+                                            }
+                                        }
+                                    });
+                        }
+                    });
+        }
 
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
