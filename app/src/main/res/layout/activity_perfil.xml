@@ -18,7 +18,7 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_pf_foto" />
+        app:layout_constraintTop_toBottomOf="@+id/image_view_pf_foto" />
 
     <TextView
         android:id="@+id/edit_text_pf_cpf"
@@ -78,27 +78,16 @@
         app:layout_constraintStart_toStartOf="@+id/edit_text_pf_senha"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_pf_senha" />
 
-    <Button
-        android:id="@+id/btn_pf_foto"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/button_rounded"
-        android:textStyle="bold"
-        android:text="Foto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image_view_pf_foto"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_pf_foto"
-        app:layout_constraintEnd_toEndOf="@+id/btn_pf_foto"
-        app:layout_constraintStart_toStartOf="@+id/btn_pf_foto"
-        app:layout_constraintTop_toTopOf="@+id/btn_pf_foto"
-        />
+        android:layout_marginTop="16dp"
+        android:text="Foto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_pf_logout"

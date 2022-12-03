@@ -25,6 +25,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.util.List;
@@ -86,6 +87,8 @@ public class EditPerfilActivity extends AppCompatActivity {
                                 edit_text_edp_telefone.setText(usuario.getTelefone());
                                 edit_text_edp_email.setText(usuario.getEmail());
                                 edit_text_edp_senha.setText(usuario.getSenha());
+                                Picasso.get().load(usuario.getFoto()).into(image_edp_foto);
+                                btn_edp_foto.setAlpha(0);
                                 break;
                             }
                         }

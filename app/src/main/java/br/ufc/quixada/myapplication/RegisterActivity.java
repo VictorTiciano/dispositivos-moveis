@@ -44,9 +44,6 @@ public class RegisterActivity extends AppCompatActivity {
     Button btn_rg_foto;
     Uri selectedUri;
     ImageView image_foto;
-    private FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-
-    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +89,6 @@ public class RegisterActivity extends AppCompatActivity {
             } catch (IOException e) {
 
             }
-
         }
     }
 

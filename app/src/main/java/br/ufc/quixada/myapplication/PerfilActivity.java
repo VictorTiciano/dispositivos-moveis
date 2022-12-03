@@ -1,6 +1,7 @@
 package br.ufc.quixada.myapplication;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
@@ -25,6 +27,8 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -48,6 +52,8 @@ public class PerfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
+
+        verificaAutenticacao();
         edit_text_pf_nome = findViewById(R.id.edit_text_pf_nome);
         edit_text_pf_cpf = findViewById(R.id.edit_text_pf_cpf);
         edit_text_pf_telefone = findViewById(R.id.edit_text_pf_telefone);
@@ -76,6 +82,7 @@ public class PerfilActivity extends AppCompatActivity {
                                 edit_text_pf_telefone.setText(usuario.getTelefone());
                                 edit_text_pf_email.setText(usuario.getEmail());
                                 edit_text_pf_senha.setText(usuario.getSenha());
+                                Picasso.get().load(usuario.getFoto()).into(image_pf_foto);
                             }
                         }
                     }
