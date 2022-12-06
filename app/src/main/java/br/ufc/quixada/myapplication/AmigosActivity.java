@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +26,7 @@ public class AmigosActivity extends AppCompatActivity {
     ArrayList<Usuario> listaAmigos = new ArrayList<>();
     ArrayAdapter adapter;
     ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,13 +51,13 @@ public class AmigosActivity extends AppCompatActivity {
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if(error != null){
+                        if (error != null) {
                             Log.e("Teste", error.getMessage(), error);
                             return;
                         }
                         List<DocumentSnapshot> documents = value.getDocuments();
-                        for (DocumentSnapshot doc: documents) {
-                            Log.d("Teste", "referencia:"+doc.getReference());
+                        for (DocumentSnapshot doc : documents) {
+                            Log.d("Teste", "referencia:" + doc.getReference());
                             FirebaseFirestore.getInstance().collection("usuarios").document(String.valueOf(doc.getReference())).update("nome", "Teste");
                             listaAmigos.add(doc.toObject(Usuario.class));
                             Usuario usuario = doc.toObject(Usuario.class);

@@ -79,36 +79,6 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.home_menu, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.home_menu_mensagens:
-//                Intent intentM = new Intent(HomeActivity.this, MensagensActivity.class);
-//                startActivity(intentM);
-//                break;
-//            case R.id.home_menu_perfil:
-//                Intent intentE = new Intent(HomeActivity.this, PerfilActivity.class);
-//                startActivity(intentE);
-//                break;
-//            case R.id.home_menu_adicionar_imovel:
-//                Intent intentI = new Intent(HomeActivity.this, RegisterAnuncioActivity.class);
-//                startActivity(intentI);
-//                break;
-//            case R.id.home_menu_contatos:
-//                Intent intentA = new Intent(HomeActivity.this, AmigosActivity.class);
-//                startActivity(intentA);
-//                break;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-
-
     public void clicarEditar() {
 
         if (selected >= 0) {
@@ -123,7 +93,6 @@ public class HomeActivity extends AppCompatActivity {
             Toast.makeText(HomeActivity.this, "Selecione um Item", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     private ArrayList<AnuncioFireBase> adicionarAnuncios() {
 

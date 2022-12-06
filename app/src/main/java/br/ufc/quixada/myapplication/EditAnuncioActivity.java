@@ -1,9 +1,5 @@
 package br.ufc.quixada.myapplication;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -16,9 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -31,7 +30,6 @@ import java.io.IOException;
 import java.util.List;
 
 import br.ufc.quixada.myapplication.model.AnuncioFireBase;
-import br.ufc.quixada.myapplication.model.Usuario;
 
 public class EditAnuncioActivity extends AppCompatActivity {
 
@@ -131,12 +129,12 @@ public class EditAnuncioActivity extends AppCompatActivity {
         DocumentReference docRef = firestore.collection("anuncios").document(srt);
         docRef.update("titulo", anuncioFireBase.getTitulo(),
                 "endereco", anuncioFireBase.getEndereco(),
-                "metrosQuadradosTerreno",anuncioFireBase.getMetrosQuadradosTerreno(),
+                "metrosQuadradosTerreno", anuncioFireBase.getMetrosQuadradosTerreno(),
                 "metrosQuadradosConstruidos", anuncioFireBase.getMetrosQuadradosConstruidos(),
-                "quantidadeQuartos",anuncioFireBase.getQuantidadeQuartos(),
+                "quantidadeQuartos", anuncioFireBase.getQuantidadeQuartos(),
                 "quantidadeBanheiros", anuncioFireBase.getQuantidadeBanheiros(),
                 "quantidadeVagasGaragem", anuncioFireBase.getQuantidadeVagasGaragem(),
-                "preco", anuncioFireBase.getPreco() );
+                "preco", anuncioFireBase.getPreco());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
