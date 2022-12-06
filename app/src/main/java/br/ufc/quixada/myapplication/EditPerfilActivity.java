@@ -104,6 +104,7 @@ public class EditPerfilActivity extends AppCompatActivity {
                         edit_text_edp_telefone.getText().toString(),
                         edit_text_edp_email.getText().toString(),
                         edit_text_edp_senha.getText().toString()
+
                 );
                 updateUser(FirebaseAuth.getInstance().getUid(), u);
             }

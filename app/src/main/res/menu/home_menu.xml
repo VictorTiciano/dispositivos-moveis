@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/item_menu_chat"
+
+    <item android:id="@+id/home_menu_home"
+        android:title="@string/homeact"
+        android:icon="@drawable/ic_action_name"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/home_menu_contatos"
+        android:title="@string/amigos"
+        android:icon="@drawable/ic_action_amigos"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/home_menu_adicionar_imovel"
+        android:title="@string/cadanuncio"
+        android:icon="@drawable/ic_action_adicionar_imovel"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/home_menu_mensagens"
         android:title="@string/chat"
         android:icon="@drawable/ic_action_chat"
         app:showAsAction="always"/>
-    <item android:id="@+id/item_menu_perfil"
+
+    <item android:id="@+id/home_menu_perfil"
         android:title="@string/menu_perfil"
         android:icon="@drawable/ic_action_perfil"
         app:showAsAction="always"/>
