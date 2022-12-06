@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import br.ufc.quixada.myapplication.model.Anuncio;
@@ -39,7 +41,7 @@ public class FeedAdapter extends ArrayAdapter<AnuncioFireBase> {
         anuncio.setText(anuncios.get(position).getTitulo());
         endereco.setText(anuncios.get(position).getEndereco());
         preco.setText(anuncios.get(position).getPreco());
-        imagem.setImageResource(R.drawable.img5);
+        Picasso.get().load(anuncios.get(position).getImg()).into(imagem);
 
         Intent intent = new Intent();
         intent.putExtra("id",anuncios.get(position).getId());
