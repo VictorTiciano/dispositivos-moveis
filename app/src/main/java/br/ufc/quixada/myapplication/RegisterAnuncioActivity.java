@@ -57,6 +57,7 @@ public class RegisterAnuncioActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_anuncio);
+        verificaAutenticacao();
 
         edit_text_im_titulo = findViewById(R.id.edit_text_im_titulo);
         edit_text_im_endereco = findViewById(R.id.edit_text_im_endereco);
@@ -84,6 +85,14 @@ public class RegisterAnuncioActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void verificaAutenticacao() {
+        if (FirebaseAuth.getInstance().getUid() == null) {
+            Intent intent = new Intent(RegisterAnuncioActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
     }
 
     @Override

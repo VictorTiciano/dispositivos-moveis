@@ -23,4 +23,6 @@
     <string name="btn_pf_logout">Logout</string>
     <string name="btn_delete_conta">Excluir conta</string>
     <string name="btn_edit_im_create" />
+    <string name="Editaranuncio">Editar Anúncio</string>
+    <string name="Anuncio">Anúncio</string>
 </resources>
