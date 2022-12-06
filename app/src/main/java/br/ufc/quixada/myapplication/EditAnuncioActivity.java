@@ -25,6 +25,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.util.List;
@@ -96,6 +97,8 @@ public class EditAnuncioActivity extends AppCompatActivity {
                                 edit_im_qtdBanheiros.setText(anuncioFireBase.getQuantidadeBanheiros());
                                 edit_im_qtdVagasGaragem.setText(anuncioFireBase.getQuantidadeVagasGaragem());
                                 edit_im_preco.setText(anuncioFireBase.getPreco());
+                                Picasso.get().load(anuncioFireBase.getImg()).into(image_foto);
+                                btn_edit_im_foto.setAlpha(0);
 
                             }
                         }

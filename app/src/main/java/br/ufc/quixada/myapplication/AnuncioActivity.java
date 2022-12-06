@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -39,6 +41,8 @@ public class AnuncioActivity extends AppCompatActivity {
     TextView textView_im_preco;
     Button btn_edit_anuncio;
     Button btn_delete_anuncio;
+    ImageView image_AN_foto;
+    Button btn_foto;
 
     AnuncioFireBase anuncioFireBase;
     FirebaseFirestore firestore = FirebaseFirestore.getInstance();
@@ -58,6 +62,8 @@ public class AnuncioActivity extends AppCompatActivity {
         textView_im_preco = findViewById(R.id.textview_im_preco);
         btn_edit_anuncio = findViewById(R.id.btn_edit_im_anuncio);
         btn_delete_anuncio = findViewById(R.id.btn_delete_anuncio);
+        image_AN_foto = findViewById(R.id.image_view_foto);
+        btn_foto = findViewById(R.id.btn_im_foto);
 
 
         FirebaseFirestore.getInstance().collection("/anuncios")
@@ -82,6 +88,8 @@ public class AnuncioActivity extends AppCompatActivity {
                                 textView_im_qtdBanheiros.setText(anuncioFireBase.getQuantidadeBanheiros());
                                 textView_im_qtdVagasGaragem.setText(anuncioFireBase.getQuantidadeVagasGaragem());
                                 textView_im_preco.setText(anuncioFireBase.getPreco());
+                                Picasso.get().load(anuncioFireBase.getImg()).into(image_AN_foto);
+                                btn_foto.setAlpha(0);
 
                             }
                         }
