@@ -3,8 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="br.ufc.quixada.myapplication">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -16,19 +18,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
 
+        <activity
+            android:name=".MapsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_maps" />
+
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
+            android:value="@integer/google_play_services_version"
+            />
         <activity
             android:name=".EditAnuncioActivity"
             android:exported="false"
-            android:label= "@string/Editaranuncio">
+            android:label="@string/Editaranuncio">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AnuncioActivity" />
@@ -36,7 +42,7 @@
         <activity
             android:name=".AnuncioActivity"
             android:exported="false"
-            android:label= "@string/Anuncio">
+            android:label="@string/Anuncio">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeActivity" />
