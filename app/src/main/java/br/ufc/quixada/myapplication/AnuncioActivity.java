@@ -43,6 +43,7 @@ public class AnuncioActivity extends AppCompatActivity {
     Button btn_delete_anuncio;
     ImageView image_AN_foto;
     Button btn_foto;
+    Button btn_map;
 
     AnuncioFireBase anuncioFireBase;
     FirebaseFirestore firestore = FirebaseFirestore.getInstance();
@@ -64,6 +65,7 @@ public class AnuncioActivity extends AppCompatActivity {
         btn_delete_anuncio = findViewById(R.id.btn_delete_anuncio);
         image_AN_foto = findViewById(R.id.image_view_foto);
         btn_foto = findViewById(R.id.btn_im_foto);
+        btn_map = findViewById(R.id.btn_map);
 
 
         FirebaseFirestore.getInstance().collection("/anuncios")
@@ -110,6 +112,15 @@ public class AnuncioActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 clicarEditar();
+            }
+        });
+
+        btn_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AnuncioActivity.this, MapsActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
 
