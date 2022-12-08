@@ -7,10 +7,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -133,10 +135,8 @@ public class EditPerfilActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 0) {
             selectedUri = data.getData();
-
             Bitmap bitmap = null;
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedUri);
@@ -146,11 +146,32 @@ public class EditPerfilActivity extends AppCompatActivity {
 
             }
         }
+        if(requestCode == 1 && resultCode == RESULT_OK){
+            Bundle extras = data.getExtras();
+            Bitmap bitmap = (Bitmap) extras.get("data");
+            image_edp_foto.setImageBitmap(bitmap);
+            btn_edp_foto.setAlpha(0);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private void selecionarFoto() {
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        startActivityForResult(intent, 0);
+        PopupMenu popup = new PopupMenu(EditPerfilActivity.this, btn_edp_foto);
+        popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            public boolean onMenuItemClick(MenuItem item) {
+                if (item.getItemId() == R.id.item_camera){
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    //intent.setType("image/*");
+                    startActivityForResult(intent, 1);
+                }if (item.getItemId() == R.id.item_galeria){
+                    Intent intent = new Intent(Intent.ACTION_PICK);
+                    intent.setType("image/*");
+                    startActivityForResult(intent, 0);
+                }
+                return true;
+            }
+        });
+        popup.show();
     }
 }
