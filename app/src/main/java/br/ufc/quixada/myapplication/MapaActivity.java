@@ -6,9 +6,13 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -106,23 +110,6 @@ public class MapaActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             }
         }
-
-//        googleMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
-//            @Override
-//            public void onMapLongClick(@NonNull LatLng latLng) {
-//
-//                googleMap.clear();
-//                latitude = latLng.latitude + "";
-//                longitude = latLng.longitude + "";
-//
-//                MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("Localizacao do imovel");
-//                map.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-//                map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
-//                map.addMarker(markerOptions);
-//
-//            }
-//        });
-
     }
 
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -134,5 +121,22 @@ public class MapaActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
                 break;
         }
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.voltar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item_voltar:
+                Intent intent = new Intent(MapaActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+        }
+        return true;
     }
 }

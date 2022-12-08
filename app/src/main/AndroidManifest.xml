@@ -29,9 +29,7 @@
             android:name=".MapaActivity"
             android:exported="false"
             android:label="@string/title_activity_mapa" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity" />
+
         </activity>
         <activity
             android:name=".EditAnuncioActivity"

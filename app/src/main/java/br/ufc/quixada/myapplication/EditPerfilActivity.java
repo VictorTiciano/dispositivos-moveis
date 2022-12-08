@@ -124,7 +124,7 @@ public class EditPerfilActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot doc = task.getResult();
                     if (doc.exists()) {
-                        Intent intent = new Intent(EditPerfilActivity.this, PerfilActivity.class);
+                        Intent intent = new Intent(EditPerfilActivity.this, HomeActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                     }
