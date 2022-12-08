@@ -118,7 +118,7 @@ public class AnuncioActivity extends AppCompatActivity {
         btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AnuncioActivity.this, MapsActivity.class);
+                Intent intent = new Intent(AnuncioActivity.this, MapaActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }

@@ -26,4 +26,5 @@
     <string name="Editaranuncio">Editar Anúncio</string>
     <string name="Anuncio">Anúncio</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_mapa">Mapa</string>
 </resources>
